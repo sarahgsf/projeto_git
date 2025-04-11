@@ -1,0 +1,60 @@
+{
+    "personagens" :
+    [
+        {
+            "id": 1,
+            "nome" : "Luke Skywalker",
+            "raca" : "Humano"
+        },
+        {
+            "id": 2,
+            "nome" : "Leia Organa",
+            "raca" : "Humano"
+        },
+        {
+            "id": 3,
+            "nome" : "Hans Solo",
+            "raca" : "Humano"
+        },
+        {
+            "id": 4,
+            "nome" : "Jabba",
+            "raca" : "Hutt"
+        },
+        {
+            "id": 5,
+            "nome" : "R2D2",
+            "raca" : "Droid"
+        },
+        {
+            "id": 6,
+            "nome" : "C3PO",
+            "raca" : "Droid"
+        },
+        {
+            "id": 7,
+            "nome" : "Vice-Rei Nute Gunray",
+            "raca" : "Neimodiano"
+        },
+        {
+            "id": 8,
+            "nome" : "Watto",
+            "raca" : "Toydarian"
+        },
+        {
+            "id": 9,
+            "nome" : "Mestre Yoda",
+            "raca" : "Ninguém sabe!"
+        },
+        {
+            "id": 10,
+            "nome" : "Ki-Adi-Mundi",
+            "raca" : "Cereano"
+        },
+        {
+            "id": 11,
+            "nome" : "Almirante Ackbar",
+            "raca" : "Mon Calamario"
+        }
+    ]
+}
