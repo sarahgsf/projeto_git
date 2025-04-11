@@ -1,84 +1,71 @@
-
-// Alterar o endereço para condizer com o endereço real.
-
-const url = "http://localhost:3000/personagens";
+const url = "personagens.json"; // novo nome do arquivo JSON
 let database = [];
 
-
+// Carrega os dados ao iniciar
 carregarDados().then(dados => {
-    database = dados;
-    //preencherDados(database);     Retirado para não exibir os dados no 1o carregamento da página.
-})
-
+    database = dados.personagens; // agora ele acessa o array 'personagens' do JSON
+});
 
 function preencherDados(dados) {
-    let base = document.querySelector("#resultados");
-    let p;
-    let span;
-
+    const base = document.querySelector("#resultados");
     base.innerHTML = "";
-    if (dados.length == 0) {
-        p = document.createElement("p");
+
+    if (dados.length === 0) {
+        const p = document.createElement("p");
         p.innerText = "Nenhum encontrado!!!";
         p.classList.add("alerta");
-        base.append(p);
+        base.appendChild(p);
         return;
     }
 
     for (let item of dados) {
-        let article = document.createElement("article");
+        const article = document.createElement("article");
 
-        p = document.createElement("p");
-        span = document.createElement("span");
+        let p = document.createElement("p");
+        let span = document.createElement("span");
         span.innerText = "ID: ";
-        p.append(span);
+        p.appendChild(span);
         p.append(item.id);
-        article.append(p);
+        article.appendChild(p);
 
         p = document.createElement("p");
         span = document.createElement("span");
         span.innerText = "Nome: ";
-        p.append(span);
+        p.appendChild(span);
         p.append(item.nome);
-        article.append(p);
+        article.appendChild(p);
 
         p = document.createElement("p");
         span = document.createElement("span");
         span.innerText = "Raça: ";
-        p.append(span);
+        p.appendChild(span);
         p.append(item.raca);
-        article.append(p);
+        article.appendChild(p);
 
-        base.append(article);
+        base.appendChild(article);
     }
 }
 
 async function carregarDados() {
     try {
-        let res = await fetch(url);
-        if (!res.ok) {
-            throw new Error("Houve algum problema!");
-        }
-        const json = await res.json();
-        return json;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("Erro ao carregar os dados.");
+        return await res.json();
     } catch (e) {
-        console.log(e.message);
+        console.error("Erro ao buscar dados:", e.message);
     }
 }
 
-
 document.querySelector("form").addEventListener("submit", (e) => {
     e.preventDefault();
-    let id = document.querySelector("input").value;
 
+    const id = document.querySelector("input").value.trim();
 
-    if (id == "") {
+    if (id === "") {
         preencherDados(database);
         return;
     }
 
-    let tmp = database.filter((v) => {
-        return v.id == id;
-    });
-    preencherDados(tmp);
+    const resultado = database.filter((p) => p.id == id);
+    preencherDados(resultado);
 });
