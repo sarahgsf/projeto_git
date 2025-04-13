@@ -1,0 +1,12 @@
+name: Ver estrutura do projeto
+
+on: [push]
+
+jobs:
+  estrutura:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          echo "📁 Estrutura do projeto:"
+          tree -L 2 || ls -R
