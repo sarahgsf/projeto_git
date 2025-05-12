@@ -18,14 +18,16 @@ O site carrega uma interface com arquivos estáticos (`index.html`, `estilos.css
 ## 🐳 Como rodar a aplicação com Docker
 
 ### 1. Construa a imagem Docker
+### 2. Execute o contêiner
+### 3. Acesse a aplicação
 
 No terminal, dentro da pasta do projeto:
 
 ```bash
 docker build -t projeto_git .
 
-Execute o contêiner
+
 docker run -p 3000:3000 projeto_git
 
-Acesse no navegador
+
 http://localhost:3000
